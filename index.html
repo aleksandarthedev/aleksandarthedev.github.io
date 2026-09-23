@@ -1,67 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <meta charset="UTF-8" />
-<title>Aleksandar Vranic</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aleksandar Vranić — Java Developer</title>
+<meta name="description" content="Portfolio of Aleksandar Vranić, Certified Java Developer." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="navbar">
-    <img class="logo" src="Logoav.png">
-	<button class="link">
-	 My Projects
-	</button>
-	<button class="link">
-	About Me
-	</button>
-	<button class="link">
-	Contact Me
-	</button>
-  </div>
- <h1 class="ttl">
-       Hey, I'm Aleksandar 👋<br />I like to <span id="typewriter"></span
-      ><span id="cursor">|</span>
- </h1>
- <img class="certificate" src="certificate.png">
- <script>
-      function sleep(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
 
-      const phrases = ["code", "play games", "watch movies"];
-      const el = document.getElementById("typewriter");
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <img class="logo" src="Logoav.png" alt="Aleksandar Vranić logo" />
+        <span class="brand-name">Aleksandar Vranić</span>
+      </a>
 
-      let sleepTime = 100;
+      <nav class="nav-links" id="navLinks">
+        <a href="#projects">projects</a>
+        <a href="#about">about</a>
+        <a href="#credential">credential</a>
+        <a href="#contact" class="nav-cta">contact</a>
+      </nav>
 
-      let curPhraseIndex = 0;
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-      const writeLoop = async () => {
-        while (true) {
-          let curWord = phrases[curPhraseIndex];
+  <main>
 
-          for (let i = 0; i < curWord.length; i++) {
-            el.innerText = curWord.substring(0, i + 1);
-            await sleep(sleepTime);
-          }
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Hey, I'm Aleksandar <span class="wave">👋</span></h1>
+          <p class="hero-sub">Certified Java Developer, building things that work — and improving them once they do.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View my projects</a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+        </div>
 
-          await sleep(sleepTime * 10);
+        <div class="terminal" role="img" aria-label="Terminal window with a short introduction">
+          <div class="terminal-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">intro.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p class="output">Aleksandar Vranić</p>
+            <p><span class="prompt">$</span> role --current</p>
+            <p class="output">Certified Java Developer</p>
+            <p><span class="prompt">$</span> ./interests.sh</p>
+            <p class="output">I like to <span id="typewriter"></span><span id="cursor">|</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          for (let i = curWord.length; i > 0; i--) {
-            el.innerText = curWord.substring(0, i - 1);
-            await sleep(sleepTime);
-          }
+    <section class="about" id="about">
+      <div class="section-inner about-grid">
+        <div class="about-text">
+          <h2>About me</h2>
+          <p>I'm a Certified Java Developer who completed a one-year Java Development program with ITAcademy (LinkGroup), earning my certification in January 2024. [Add a sentence or two about how you got into development and what you focus on now.]</p>
+          <p>[Add a sentence about the kind of work or role you're looking for.]</p>
+        </div>
+        <div class="skills">
+          <h3>Core toolkit</h3>
+          <!-- Edit this list to match your real stack -->
+          <ul class="skill-list">
+            <li>Java</li>
+            <li>Object-Oriented Programming</li>
+            <li>SQL</li>
+            <li>Git</li>
+            <li>[Your stack]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          await sleep(sleepTime * 5);
+    <section class="credential" id="credential">
+      <div class="section-inner">
+        <h2>Credential</h2>
+        <div class="credential-card">
+          <img src="certificate.png" alt="Certified Java Developer certificate issued to Aleksandar Vranić by LinkGroup ITAcademy" class="credential-img" />
+          <div class="credential-meta">
+            <h3>Certified Java Developer</h3>
+            <dl>
+              <div><dt>Issuer</dt><dd>LinkGroup — ITAcademy</dd></div>
+              <div><dt>Program</dt><dd>Java Development, one-year</dd></div>
+              <div><dt>Awarded</dt><dd>25 January 2024</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          if (curPhraseIndex === phrases.length - 1) {
-            curPhraseIndex = 0;
-          } else {
-            curPhraseIndex++;
-          }
-        }
-      };
+    <section class="projects" id="projects">
+      <div class="section-inner">
+        <h2>Projects</h2>
+        <!-- Replace these three placeholders with your real projects -->
+        <div class="project-list">
+          <article class="project-card">
+            <div>
+              <h3>[Project one]</h3>
+              <p>[One or two sentences on what it does and what problem it solves.]</p>
+              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+            </div>
+            <div class="project-links">
+              <a href="#">Live</a>
+              <a href="#">Code</a>
+            </div>
+          </article>
 
-      writeLoop();
-    </script>
+          <article class="project-card">
+            <div>
+              <h3>[Project two]</h3>
+              <p>[One or two sentences on what it does and what problem it solves.]</p>
+              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+            </div>
+            <div class="project-links">
+              <a href="#">Live</a>
+              <a href="#">Code</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>[Project three]</h3>
+              <p>[One or two sentences on what it does and what problem it solves.]</p>
+              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+            </div>
+            <div class="project-links">
+              <a href="#">Live</a>
+              <a href="#">Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner contact-inner">
+        <h2>Let's talk</h2>
+        <p>Have a project in mind, a role to fill, or just want to say hi? Reach out — I read every message.</p>
+        <div class="contact-links">
+          <a href="mailto:youremail@example.com">Email</a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Aleksandar Vranić. Built with HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
