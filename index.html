@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0b0c10" />
 <title>Aleksandar Vranić — Java Developer</title>
 <meta name="description" content="Portfolio of Aleksandar Vranić, Certified Java Developer." />
+<meta property="og:title" content="Aleksandar Vranić — Java Developer" />
+<meta property="og:description" content="Certified Java Developer. Projects, credentials and contact." />
+<meta property="og:type" content="website" />
+<!-- Add og:image with your live site URL once it's hosted, e.g. https://yoursite.com/certificate.png -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c10'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='bold' fill='%238b5cf6' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -66,11 +72,26 @@
 
     <section class="about" id="about">
       <div class="section-inner about-grid">
-        <div class="about-text">
-          <h2>About me</h2>
-          <p>I'm a Certified Java Developer who completed a one-year Java Development program with ITAcademy (LinkGroup), earning my certification in January 2024. [Add a sentence or two about how you got into development and what you focus on now.]</p>
-          <p>[Add a sentence about the kind of work or role you're looking for.]</p>
+        <div class="code-window about-code">
+          <div class="code-bar">
+            <span class="file-dot"></span>
+            <span class="code-filename">AboutMe.java</span>
+          </div>
+          <pre class="code-body"><code><span class="c-comment">// A quick introduction</span>
+<span class="c-kw">public class</span> <span class="c-type">AboutMe</span> {
+
+    <span class="c-kw">private</span> <span class="c-type">String</span> name <span class="c-op">=</span> <span class="c-str">"Aleksandar Vranić"</span>;
+    <span class="c-kw">private</span> <span class="c-type">String</span> role <span class="c-op">=</span> <span class="c-str">"Certified Java Developer"</span>;
+    <span class="c-kw">private</span> <span class="c-type">String</span>[] toolkit <span class="c-op">=</span> { <span class="c-str">"Java"</span>, <span class="c-str">"OOP"</span>, <span class="c-str">"SQL"</span>, <span class="c-str">"Git"</span> };
+
+    <span class="c-comment">// [Add a line on how you got into development]</span>
+    <span class="c-kw">private</span> <span class="c-type">String</span> background <span class="c-op">=</span> <span class="c-str">"[your story here]"</span>;
+
+    <span class="c-comment">// [What kind of role are you looking for?]</span>
+    <span class="c-kw">private</span> <span class="c-type">String</span> lookingFor <span class="c-op">=</span> <span class="c-str">"[your goal here]"</span>;
+}</code></pre>
         </div>
+
         <div class="skills">
           <h3>Core toolkit</h3>
           <!-- Edit this list to match your real stack -->
@@ -89,8 +110,12 @@
       <div class="section-inner">
         <h2>Credential</h2>
         <div class="credential-card">
-          <img src="certificate.png" alt="Certified Java Developer certificate issued to Aleksandar Vranić by LinkGroup ITAcademy" class="credential-img" />
+          <img src="certificate.png" alt="Certified Java Developer certificate issued to Aleksandar Vranić by LinkGroup ITAcademy. Click to enlarge." class="credential-img" id="credentialImg" />
           <div class="credential-meta">
+            <span class="verified-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Verified credential
+            </span>
             <h3>Certified Java Developer</h3>
             <dl>
               <div><dt>Issuer</dt><dd>LinkGroup — ITAcademy</dd></div>
@@ -111,7 +136,7 @@
             <div>
               <h3>[Project one]</h3>
               <p>[One or two sentences on what it does and what problem it solves.]</p>
-              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+              <div class="project-tags"><span class="lang"><i class="lang-dot"></i>Java</span><span>[tech]</span></div>
             </div>
             <div class="project-links">
               <a href="#">Live</a>
@@ -123,7 +148,7 @@
             <div>
               <h3>[Project two]</h3>
               <p>[One or two sentences on what it does and what problem it solves.]</p>
-              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+              <div class="project-tags"><span class="lang"><i class="lang-dot"></i>Java</span><span>[tech]</span></div>
             </div>
             <div class="project-links">
               <a href="#">Live</a>
@@ -135,7 +160,7 @@
             <div>
               <h3>[Project three]</h3>
               <p>[One or two sentences on what it does and what problem it solves.]</p>
-              <div class="project-tags"><span>Java</span><span>[tech]</span></div>
+              <div class="project-tags"><span class="lang"><i class="lang-dot"></i>Java</span><span>[tech]</span></div>
             </div>
             <div class="project-links">
               <a href="#">Live</a>
@@ -160,9 +185,19 @@
 
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Aleksandar Vranić. Built with HTML, CSS &amp; JavaScript.</p>
+  <footer class="status-bar">
+    <span class="status-left">© 2026 Aleksandar Vranić</span>
+    <span class="status-right">
+      <span>Java</span>
+      <span>UTF-8</span>
+      <span>Spaces: 4</span>
+    </span>
   </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close enlarged certificate">&times;</button>
+    <img src="certificate.png" alt="Certified Java Developer certificate, enlarged" />
+  </div>
 
   <script src="script.js"></script>
 </body>
