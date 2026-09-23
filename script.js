@@ -1,23 +1,48 @@
+document.addEventListener('DOMContentLoaded', () => {
 
-function sleep(ms) {
-    
-   return new Promise((resolve) => setTimeout(resolve,ms));	
-}
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
 
-const phrases = ['code', 'play games' , 'watch movies'];
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => links.classList.remove('open'));
+    });
+  }
 
-const el = document.getElementById("typewriter");
+  // Typewriter
+  const phrases = ['code', 'play games', 'watch movies'];
+  const el = document.getElementById('typewriter');
+  const typeSpeed = 90;
+  const pauseAfterType = 1100;
+  const pauseAfterDelete = 400;
+  let phraseIndex = 0;
 
-let sleepTime = 100;
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-let curPhraseIndex = 0;
+  async function typeLoop() {
+    while (true) {
+      const word = phrases[phraseIndex];
 
-const writeLoop = async () => {
-	
-	while(true) {
-		let curWord = phrases(curPhraseIndex);
-		console.log(curWord);
-		sleep(1000);	}
-}
+      for (let i = 1; i <= word.length; i++) {
+        el.textContent = word.slice(0, i);
+        await sleep(typeSpeed);
+      }
+      await sleep(pauseAfterType);
 
-writeLoop();
+      for (let i = word.length; i >= 0; i--) {
+        el.textContent = word.slice(0, i);
+        await sleep(typeSpeed);
+      }
+      await sleep(pauseAfterDelete);
+
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+  }
+
+  if (el) typeLoop();
+});
